@@ -1,10 +1,10 @@
 # Shopify 2021 Front-End Engineering Summer Intern Challenge
 
-### Tools used
+## Tools used
 
 - React
-- Surge.sh (for hosting)
-- Cloudfront + S3 (for CDN & Asset Store)
+- Netlify (for hosting)
+- Cloudfront + S3, for CDN & Asset Store
 - Shopify Polaris, for components & layout
 - Framer Motion API, for animations
 - React Icons, for icons
