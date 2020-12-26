@@ -1,0 +1,56 @@
+/* Flexbox Layouts */
+.row {
+  display: flex;
+}
+
+.col-25 {
+  flex: 25%;
+}
+
+.col-30 {
+  flex: 30%;
+}
+
+.col-70 {
+  flex: 70%;
+}
+
+.col-75 {
+  flex: 75%;
+}
+
+.col-50 {
+  flex: 50%;
+
+  margin: 5px;
+}
+
+/* Responsive Flexbox considerations */
+@media (max-width: 576px) {
+  .col-25,
+  .col-30,
+  .col-50,
+  .col-70,
+  .col-75 {
+    flex: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+  .poster {
+    max-height: 100px;
+  }
+}
+
+/* Padding utility */
+.p-1 {
+  padding: 1em;
+}
+.p-2 {
+  padding: 2em;
+}
+
+.poster {
+  max-width: 100%;
+}
