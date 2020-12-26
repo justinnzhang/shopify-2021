@@ -22,17 +22,12 @@ const Landing = () => {
             >
               <FadeUpChildren keyPass='Landing Body Text'>
                 <p style={{ marginBottom: '20px' }}>
-                  Vote for your favourite movies of the year, hosted by Shopify
+                  Nominate your favourite movies of the year, hosted by Shopify
                 </p>
               </FadeUpChildren>
               <FadeUpChildren keyPass='Landing Primary Button'>
-                <Button primary>
-                  <Link
-                    to='/search'
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    Get started
-                  </Link>
+                <Button primary url='/search'>
+                  Get started
                 </Button>
               </FadeUpChildren>
             </EmptyState>

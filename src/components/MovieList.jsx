@@ -12,12 +12,13 @@ import {
   SkeletonThumbnail,
   ButtonGroup,
   Badge,
+  MediaCard,
 } from '@shopify/polaris';
 
 // Icons - React Icons
 import { IconContext } from 'react-icons';
 import { BiDetail } from 'react-icons/bi';
-import { IoIosTrophy } from 'react-icons/io';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 
 // Custom components & CSS
 import './components.css';
@@ -28,8 +29,8 @@ import FadeUpParent from '../animation/FadeUpParent';
 import FadeUpChildren from '../animation/FadeUpChildren';
 
 const MovieList = ({
-  total,
   movieData,
+  searchData,
   searchTerm,
   isLoading,
   nominationList,
@@ -85,6 +86,30 @@ const MovieList = ({
             </div>
           </Card.Section>
         </Card>
+        <Card>
+          <Card.Section>
+            <div className='row'>
+              <div className='col-25'>
+                <SkeletonThumbnail size='medium' />
+              </div>
+              <div className='col-75'>
+                <SkeletonBodyText />
+              </div>
+            </div>
+          </Card.Section>
+        </Card>
+        <Card>
+          <Card.Section>
+            <div className='row'>
+              <div className='col-25'>
+                <SkeletonThumbnail size='medium' />
+              </div>
+              <div className='col-75'>
+                <SkeletonBodyText />
+              </div>
+            </div>
+          </Card.Section>
+        </Card>
       </>
     );
   }
@@ -93,7 +118,7 @@ const MovieList = ({
   return (
     <FadeUpParent>
       <DisplayText size='small'>
-        Found {total} results for "{searchTerm}"
+        Found {parseInt(searchData.totalResults)} results for "{searchTerm}"
       </DisplayText>
       <Spacer />
       {movieData.map((element, key) => (
@@ -131,17 +156,22 @@ const MovieList = ({
                       onClick={() => loadMovieDetails(element.imdbID)}
                       icon={
                         <IconContext.Provider
-                          value={{ style: { verticalAlign: '-0.1em' } }}
+                          value={{ style: { verticalAlign: '-0.2em' } }}
                         >
                           <BiDetail />
                         </IconContext.Provider>
                       }
                     >
-                      More details
+                      Info
                     </Button>
                     <Button
                       onClick={() =>
-                        callback(element.imdbID, element.Title, element.Year)
+                        callback(
+                          element.imdbID,
+                          element.Title,
+                          element.Year,
+                          element.Poster
+                        )
                       }
                       disabled={
                         movieExists(element.imdbID) ||
@@ -151,13 +181,13 @@ const MovieList = ({
                       }
                       icon={
                         <IconContext.Provider
-                          value={{ style: { verticalAlign: '-0.1em' } }}
+                          value={{ style: { verticalAlign: '-0.2em' } }}
                         >
-                          <IoIosTrophy />
+                          <IoIosAddCircleOutline />
                         </IconContext.Provider>
                       }
                     >
-                      Add to nominations
+                      Nominate
                     </Button>
                   </ButtonGroup>
                 </div>

@@ -7,8 +7,8 @@ import {
   Button,
   Card,
   TextStyle,
-  DisplayText,
   ButtonGroup,
+  TextContainer,
 } from '@shopify/polaris';
 
 // Custom components & CSS
@@ -49,40 +49,41 @@ const NominationList = ({
             animate='enter'
             exit='exit'
             key={element.Title + element.Year}
+            className='nominatedCard'
           >
-            <Card.Section>
-              <DisplayText size='small'>{element.Title}</DisplayText>
-              <DisplayText size='small'>
-                <TextStyle variation='subdued'>{element.Year}</TextStyle>
-              </DisplayText>
+            <TextContainer>
+              <p>
+                {element.Title}{' '}
+                <TextStyle variation='subdued'>({element.Year})</TextStyle>
+              </p>
+            </TextContainer>
 
-              <Spacer amount={10} />
+            <Spacer amount={10} />
 
-              <ButtonGroup>
-                <Button
-                  size='slim'
-                  primary
-                  onClick={() => loadMovieDetails(element.id)}
-                  icon={
-                    <IconContext.Provider
-                      value={{ style: { verticalAlign: '-0.1em' } }}
-                    >
-                      <BiDetail />
-                    </IconContext.Provider>
-                  }
-                >
-                  More details
-                </Button>
-                <Button
-                  size='slim'
-                  plain
-                  destructive
-                  onClick={() => removeNomination(index)}
-                >
-                  Remove
-                </Button>
-              </ButtonGroup>
-            </Card.Section>
+            <ButtonGroup>
+              <Button
+                size='slim'
+                primary
+                onClick={() => loadMovieDetails(element.id)}
+                icon={
+                  <IconContext.Provider
+                    value={{ style: { verticalAlign: '-0.15em' } }}
+                  >
+                    <BiDetail />
+                  </IconContext.Provider>
+                }
+              >
+                Info
+              </Button>
+              <Button
+                size='slim'
+                plain
+                destructive
+                onClick={() => removeNomination(index)}
+              >
+                Remove
+              </Button>
+            </ButtonGroup>
           </motion.div>
         ))}
       </AnimateSharedLayout>

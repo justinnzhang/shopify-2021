@@ -1,6 +1,8 @@
 /* Flexbox Layouts */
 .row {
   display: flex;
+
+  flex-direction: row;
 }
 
 .col-25 {
@@ -10,7 +12,15 @@
 .col-30 {
   flex: 30%;
 }
-
+.col-40 {
+  flex: 40%;
+}
+.col-50 {
+  flex: 50%;
+}
+.col-60 {
+  flex: 60%;
+}
 .col-70 {
   flex: 70%;
 }
@@ -19,17 +29,27 @@
   flex: 75%;
 }
 
-.col-50 {
+.col-50-s {
   flex: 50%;
 
   margin: 5px;
+}
+
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
 }
 
 /* Responsive Flexbox considerations */
 @media (max-width: 576px) {
   .col-25,
   .col-30,
+  .col-40,
+  .col-50-s,
   .col-50,
+  .col-60,
   .col-70,
   .col-75 {
     flex: 100%;
@@ -40,6 +60,9 @@
   }
   .poster {
     max-height: 100px;
+  }
+  .p-2 {
+    padding: 0em;
   }
 }
 
@@ -53,4 +76,10 @@
 
 .poster {
   max-width: 100%;
+}
+
+.nominatedCard {
+  padding: 1.5em;
+  background: white;
+  border-top: 0.5px solid RGBA(0, 0, 0, 0.25);
 }

@@ -8,6 +8,7 @@ import { AppProvider } from '@shopify/polaris';
 // Pages
 import Landing from './pages/Landing';
 import Main from './pages/Main';
+import Summary from './pages/Summary';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route exact path='/search' component={Main} />
+          <Route exact path='/summary' component={Summary} />
         </Switch>
       </AppProvider>
     </Router>

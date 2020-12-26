@@ -14,6 +14,7 @@ import {
 
 // Custom components
 import Spacer from './Spacer';
+import PosterPlaceholder from './PosterPlaceholder';
 
 // Custom animation components
 import FadeUpParent from '../animation/FadeUpParent';
@@ -29,14 +30,7 @@ const MovieDetails = ({ movieDetails, isLoadingDetails, errors }) => {
             className='col-30'
             style={{ paddingRight: '20px', position: 'sticky' }}
           >
-            <div
-              style={{
-                backgroundColor: '#f2f2f2',
-                width: '100%',
-                height: '300px',
-              }}
-              id='Large placeholder poster'
-            />
+            <PosterPlaceholder />
             <Spacer />
           </div>
           <div className='col-70'>
@@ -49,12 +43,12 @@ const MovieDetails = ({ movieDetails, isLoadingDetails, errors }) => {
             <Spacer />
 
             <div className='row'>
-              <div className='col-50'>
+              <div className='col-50-s'>
                 <Card sectioned>
                   <SkeletonDisplayText size='small' />
                 </Card>
               </div>
-              <div className='col-50'>
+              <div className='col-50-s'>
                 <Card sectioned>
                   <SkeletonDisplayText size='small' />
                 </Card>
@@ -148,7 +142,7 @@ const MovieDetails = ({ movieDetails, isLoadingDetails, errors }) => {
           <Spacer />
 
           <div className='row'>
-            <div className='col-50'>
+            <div className='col-50-s'>
               <FadeUpChildren>
                 <Card sectioned>
                   <TextContainer spacing='tight'>
@@ -162,7 +156,7 @@ const MovieDetails = ({ movieDetails, isLoadingDetails, errors }) => {
                 </Card>
               </FadeUpChildren>
             </div>
-            <div className='col-50'>
+            <div className='col-50-s'>
               <FadeUpChildren>
                 <Card sectioned>
                   <TextContainer spacing='tight'>
