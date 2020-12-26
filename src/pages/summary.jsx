@@ -46,9 +46,16 @@ const Summary = () => {
 
   const history = useHistory();
 
+  // Checking for existing nominations in local storage, redirecting back to /search if non existent
   useEffect(() => {
     if (localStorage.getItem('nominated')) {
-      setNominated(JSON.parse(localStorage.getItem('nominated')));
+      if (JSON.parse(localStorage.getItem('nominated')).length === 5) {
+        setNominated(JSON.parse(localStorage.getItem('nominated')));
+      } else {
+        NavigateTo('/search', history);
+      }
+    } else {
+      NavigateTo('/search', history);
     }
   }, []);
 

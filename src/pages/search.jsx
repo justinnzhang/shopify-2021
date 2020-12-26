@@ -362,12 +362,13 @@ const Main = () => {
                     <TextStyle variation='negative'>
                       {errors.nominationError}
                     </TextStyle>
-
-                    <NominationList
-                      nominationList={nominated}
-                      removeNomination={removeNomination}
-                      loadMovieDetails={loadMovieDetails}
-                    />
+                    <motion.div layout>
+                      <NominationList
+                        nominationList={nominated}
+                        removeNomination={removeNomination}
+                        loadMovieDetails={loadMovieDetails}
+                      />
+                    </motion.div>
                   </Card>
 
                   <motion.div layout key='footer help component'>

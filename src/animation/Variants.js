@@ -38,14 +38,25 @@ export const childFadeUp = {
 };
 
 export const nominationItem = {
-  intial: { opacity: 0, x: -50 },
+  initial: { opacity: 0, y: 50 },
   enter: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: { duration: 0.3, ease: [0.17, 0.87, 0.92, 1] },
   },
   exit: {
     opacity: 0,
-    x: 50,
+    y: 50,
+  },
+};
+
+export const floatingLoop = {
+  enter: {
+    y: [-20, -10, -20],
+    transition: {
+      duration: 2.5,
+      ease: 'easeInOut',
+      repeat: Infinity,
+    },
   },
 };

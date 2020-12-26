@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimateSharedLayout } from 'framer-motion';
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 // Shopify Polaris Components
@@ -39,7 +39,7 @@ const NominationList = ({
   }
 
   return (
-    <>
+    <AnimatePresence exitBeforeEnter>
       <AnimateSharedLayout>
         {nominationList.map((element, index) => (
           <motion.div
@@ -87,7 +87,7 @@ const NominationList = ({
           </motion.div>
         ))}
       </AnimateSharedLayout>
-    </>
+    </AnimatePresence>
   );
 };
 

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import '../App.css';
 
 // Shopify Polaris Components
-import { Button, Page, Layout, EmptyState } from '@shopify/polaris';
+import { Button, Page, Layout, EmptyState, Card } from '@shopify/polaris';
 
 // Custom animation components
 import FadeUpParent from '../animation/FadeUpParent';
