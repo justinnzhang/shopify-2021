@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import '../App.css';
 
@@ -10,7 +10,12 @@ import { Button, Page, Layout, EmptyState } from '@shopify/polaris';
 import FadeUpParent from '../animation/FadeUpParent';
 import FadeUpChildren from '../animation/FadeUpChildren';
 
+// React router function
+import { NavigateTo } from '../components/RouterNavigation';
+
 const Landing = () => {
+  const history = useHistory();
+
   return (
     <Page>
       <FadeUpParent delayed keyPass='Landing FadeUp Parent'>
@@ -26,13 +31,12 @@ const Landing = () => {
                 </p>
               </FadeUpChildren>
               <FadeUpChildren keyPass='Landing Primary Button'>
-                <Button primary url='/search'>
+                <Button primary onClick={() => NavigateTo('/search', history)}>
                   Get started
                 </Button>
               </FadeUpChildren>
             </EmptyState>
           </Layout.Section>
-          <Layout.Section></Layout.Section>
         </Layout>
       </FadeUpParent>
     </Page>

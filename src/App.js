@@ -6,9 +6,9 @@ import enTranslations from '@shopify/polaris/locales/en.json';
 import { AppProvider } from '@shopify/polaris';
 
 // Pages
-import Landing from './pages/Landing';
-import Main from './pages/Main';
-import Summary from './pages/Summary';
+import Landing from './pages/index';
+import Main from './pages/search';
+import Summary from './pages/summary';
 
 const App = () => {
   return (

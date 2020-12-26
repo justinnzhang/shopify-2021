@@ -15,7 +15,7 @@ const AnimationTrigger = ({ children, keyPass }) => {
     enter: {
       opacity: 1,
       translateY: 0,
-      transition: { duration: 0.333, ease: 'easeOut', staggerChildren: 0.1 },
+      transition: { duration: 0.333, ease: 'easeOut', staggerChildren: 0.2 },
     },
   };
 

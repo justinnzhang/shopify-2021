@@ -1,9 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 // Shopify Polaris Components
 import {
+  AppProvider,
   Button,
   Page,
   Layout,
@@ -14,19 +16,19 @@ import {
   Banner,
   Modal,
   Frame,
-  DisplayText,
   Toast,
   Form,
   FooterHelp,
   Caption,
 } from '@shopify/polaris';
 
+import enTranslations from '@shopify/polaris/locales/en.json';
+
 // Icons - React Icons
 import { IconContext } from 'react-icons';
 import { IoSearchOutline } from 'react-icons/io5';
 
 // Custom components & CSS
-import '../App.css';
 import Spacer from '../components/Spacer';
 import MovieList from '../components/MovieList';
 import NominationList from '../components/NominationList';
@@ -36,6 +38,9 @@ import MovieDetails from '../components/MovieDetails';
 import { childFadeUp } from '../animation/Variants';
 import FadeUpParent from '../animation/FadeUpParent';
 import FadeUpChildren from '../animation/FadeUpChildren';
+
+// React router function
+import { NavigateTo } from '../components/RouterNavigation';
 
 const Main = () => {
   // Loading states
@@ -84,6 +89,9 @@ const Main = () => {
     <Toast content={toastMessage} onDismiss={toggleActiveToast} />
   ) : null;
 
+  const history = useHistory();
+
+  // Checks to see if there's existing nominations in localStorage
   useEffect(() => {
     if (localStorage.getItem('nominated')) {
       setToastMessage('Loaded previous nominations');
@@ -97,7 +105,6 @@ const Main = () => {
     setErrors({});
     setIsLoading(true);
     setSearchPage(1);
-    setCount(count + 1);
 
     await axios
       .get(
@@ -111,13 +118,14 @@ const Main = () => {
           setSearchData(res.data);
           setMovieData(res.data.Search);
           setIsLoading(false);
-
+          setCount(count + 1);
           setLastSearched(value);
         }
       })
       .catch((err) => {
-        setIsLoading(false);
         setErrors({ searchError: 'An error occured' });
+        setCount(count - 1);
+        setIsLoading(false);
       });
   };
 
@@ -232,169 +240,175 @@ const Main = () => {
   };
 
   return (
-    <Frame>
-      {toastMarkup}
-      <FadeUpParent keyPass='Main Page Parent'>
-        <Page
-          title='The Shoppies'
-          separator
-          breadcrumbs={[{ content: 'Landing', url: '/' }]}
-          subtitle='Movie Search'
-        >
-          <Modal
-            large
-            title
-            open={active}
-            onClose={toggleActive}
-            secondaryActions={[
-              {
-                content: 'Close',
-                onAction: toggleActive,
-              },
+    <AppProvider i18n={enTranslations}>
+      <Frame>
+        {toastMarkup}
+        <FadeUpParent keyPass='Main Page Parent'>
+          <Page
+            title='The Shoppies'
+            separator
+            breadcrumbs={[
+              { content: 'Landing', onAction: () => NavigateTo('/', history) },
             ]}
-            instant={false}
+            subtitle='Movie Search'
           >
-            <Modal.Section>
-              <MovieDetails
-                isLoadingDetails={isLoadingDetails}
-                movieDetails={movieDetails}
-                errors={errors}
-              />
-            </Modal.Section>
-          </Modal>
+            <Modal
+              large
+              title
+              open={active}
+              onClose={toggleActive}
+              secondaryActions={[
+                {
+                  content: 'Close',
+                  onAction: toggleActive,
+                },
+              ]}
+              instant={false}
+            >
+              <Modal.Section>
+                <MovieDetails
+                  isLoadingDetails={isLoadingDetails}
+                  movieDetails={movieDetails}
+                  errors={errors}
+                />
+              </Modal.Section>
+            </Modal>
 
-          <FadeUpChildren>
-            <Layout>
-              <Layout.Section>
-                <Card>
-                  <Card.Section>
-                    <Form>
-                      <TextField
-                        label='Search for a movie title'
-                        placeholder='Try Avengers, The Room, or Finding Nemo'
-                        value={value}
-                        onChange={handleChange}
-                        clearButton
-                        onClearButtonClick={handleClearButtonClick}
-                        error={errors.searchError}
-                        prefix={
-                          <IconContext.Provider
-                            value={{
-                              style: { verticalAlign: '-0.1em' },
-                            }}
-                          >
-                            <IoSearchOutline />
-                          </IconContext.Provider>
-                        }
-                        autoFocus={true}
-                      />
-
-                      <Spacer amount={10} />
-
-                      <Button
-                        primary
-                        onClick={() => searchMovies()}
-                        loading={isLoading ? true : false}
-                        submit={true}
-                      >
-                        Search
-                      </Button>
-                    </Form>
-                  </Card.Section>
-                </Card>
-              </Layout.Section>
-            </Layout>
-          </FadeUpChildren>
-
-          <Spacer />
-
-          {nominated.length === 5 && (
-            <FadeUpChildren keyPass='Completed banner'>
-              <Banner
-                title='Maximum nominations reached'
-                status='info'
-                action={{ content: 'Continue', url: '/summary' }}
-              >
-                <p>You've selected your 5 nominations, continue?</p>
-              </Banner>
-            </FadeUpChildren>
-          )}
-
-          <Spacer />
-
-          <FadeUpChildren>
-            <Layout>
-              <Layout.Section secondary>
-                <Card title='Your Nominations'>
-                  <FadeUpChildren>
-                    <Card.Section>
-                      <TextStyle variation='subdued'>
-                        Nominate up to 5 movies
-                      </TextStyle>
-                      {nominated.length === 0 && (
-                        <motion.img
-                          variants={childFadeUp}
-                          src='https://doixzan7hf4ti.cloudfront.net/shopify-2021-challenge/Shoppies-Nomination-Empty-List.svg'
-                          style={{
-                            maxWidth: '100%',
-                            textAlign: 'center',
-                          }}
-                          alt='Trophy for the Shoppies'
-                          layout
-                        />
-                      )}
-                    </Card.Section>
-                  </FadeUpChildren>
-
-                  <TextStyle variation='negative'>
-                    {errors.nominationError}
-                  </TextStyle>
-
-                  <NominationList
-                    nominationList={nominated}
-                    removeNomination={removeNomination}
-                    loadMovieDetails={loadMovieDetails}
-                  />
-                </Card>
-
-                <motion.div layout key='footer help component'>
-                  <FooterHelp>
-                    <Caption>
-                      <TextStyle variation='subdued'>
-                        Nominations are automatically saved
-                      </TextStyle>
-                    </Caption>
-                  </FooterHelp>
-                </motion.div>
-              </Layout.Section>
-              <Layout.Section>
-                {count === 0 && (
+            <FadeUpChildren>
+              <Layout>
+                <Layout.Section>
                   <Card>
                     <Card.Section>
-                      <EmptyState
-                        heading='Search for a movie to get started'
-                        image='https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png'
-                      >
-                        <p>
-                          Once you find a movie that you like, add it to your
-                          nominations
-                        </p>
-                      </EmptyState>
+                      <Form>
+                        <TextField
+                          label='Search for a movie title'
+                          placeholder='Try Avengers, The Room, or Finding Nemo'
+                          value={value}
+                          onChange={handleChange}
+                          clearButton
+                          onClearButtonClick={handleClearButtonClick}
+                          error={errors.searchError}
+                          prefix={
+                            <IconContext.Provider
+                              value={{
+                                style: { verticalAlign: '-0.1em' },
+                              }}
+                            >
+                              <IoSearchOutline />
+                            </IconContext.Provider>
+                          }
+                          autoFocus={true}
+                        />
+
+                        <Spacer amount={10} />
+
+                        <Button
+                          primary
+                          onClick={() => searchMovies()}
+                          loading={isLoading ? true : false}
+                          submit={true}
+                        >
+                          Search
+                        </Button>
+                      </Form>
                     </Card.Section>
                   </Card>
-                )}
-                {count > 0 && (
-                  <>
-                    <MovieList
-                      isLoading={isLoading}
-                      movieData={movieData}
-                      searchData={searchData}
-                      searchTerm={lastSearched}
-                      callback={addNomination}
+                </Layout.Section>
+              </Layout>
+            </FadeUpChildren>
+
+            <Spacer />
+
+            {nominated.length === 5 && (
+              <FadeUpChildren keyPass='Completed banner'>
+                <Banner
+                  title='Maximum nominations reached'
+                  status='info'
+                  action={{
+                    content: 'Continue',
+                    onAction: () => NavigateTo('/summary', history),
+                  }}
+                >
+                  <p>You've selected your 5 nominations, continue?</p>
+                </Banner>
+              </FadeUpChildren>
+            )}
+
+            <Spacer />
+
+            <FadeUpChildren>
+              <Layout>
+                <Layout.Section secondary>
+                  <Card title='Your Nominations'>
+                    <FadeUpChildren>
+                      <Card.Section>
+                        <TextStyle variation='subdued'>
+                          Nominate up to 5 movies
+                        </TextStyle>
+                        {nominated.length === 0 && (
+                          <motion.img
+                            variants={childFadeUp}
+                            src='https://doixzan7hf4ti.cloudfront.net/shopify-2021-challenge/Shoppies-Nomination-Empty-List.svg'
+                            style={{
+                              maxWidth: '100%',
+                              textAlign: 'center',
+                            }}
+                            alt='Trophy for the Shoppies'
+                          />
+                        )}
+                      </Card.Section>
+                    </FadeUpChildren>
+
+                    <TextStyle variation='negative'>
+                      {errors.nominationError}
+                    </TextStyle>
+
+                    <NominationList
                       nominationList={nominated}
+                      removeNomination={removeNomination}
                       loadMovieDetails={loadMovieDetails}
                     />
-                    <Spacer />
+                  </Card>
+
+                  <motion.div layout key='footer help component'>
+                    <FooterHelp>
+                      <Caption>
+                        <TextStyle variation='subdued'>
+                          Nominations are automatically saved
+                        </TextStyle>
+                      </Caption>
+                    </FooterHelp>
+                  </motion.div>
+                </Layout.Section>
+                <Layout.Section>
+                  {count === 0 && !isLoading && (
+                    <Card>
+                      <Card.Section>
+                        <EmptyState
+                          heading='Search for a movie to get started'
+                          image='https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png'
+                        >
+                          <p>
+                            Once you find a movie that you like, add it to your
+                            nominations
+                          </p>
+                        </EmptyState>
+                      </Card.Section>
+                    </Card>
+                  )}
+
+                  <MovieList
+                    isLoading={isLoading}
+                    movieData={movieData}
+                    searchData={searchData}
+                    searchTerm={lastSearched}
+                    callback={addNomination}
+                    nominationList={nominated}
+                    loadMovieDetails={loadMovieDetails}
+                  />
+                  <Spacer />
+
+                  {count > 0 && (
                     <Button
                       fullWidth
                       primary
@@ -403,17 +417,16 @@ const Main = () => {
                     >
                       Load more
                     </Button>
-                    <TextStyle variation='negative'>
-                      {errors.loadError}
-                    </TextStyle>
-                  </>
-                )}
-              </Layout.Section>
-            </Layout>
-          </FadeUpChildren>
-        </Page>
-      </FadeUpParent>
-    </Frame>
+                  )}
+
+                  <TextStyle variation='negative'>{errors.loadError}</TextStyle>
+                </Layout.Section>
+              </Layout>
+            </FadeUpChildren>
+          </Page>
+        </FadeUpParent>
+      </Frame>
+    </AppProvider>
   );
 };
 

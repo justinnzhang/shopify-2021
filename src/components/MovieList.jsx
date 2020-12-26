@@ -12,7 +12,6 @@ import {
   SkeletonThumbnail,
   ButtonGroup,
   Badge,
-  MediaCard,
 } from '@shopify/polaris';
 
 // Icons - React Icons
@@ -42,6 +41,10 @@ const MovieList = ({
     return nominationList.some(function (el) {
       return el.id === id;
     });
+  }
+
+  if (!movieData && !isLoading) {
+    return <></>;
   }
 
   // Loading state - skeleton

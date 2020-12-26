@@ -1,39 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Shopify Polaris Components
-import {
-  Button,
-  Page,
-  Layout,
-  Card,
-  TextField,
-  EmptyState,
-  TextStyle,
-  Banner,
-  Modal,
-  Frame,
-  DisplayText,
-  Toast,
-  Form,
-} from '@shopify/polaris';
+import { DisplayText } from '@shopify/polaris';
 
 import './animation.css';
 import '../components/components.css';
 
 import PosterPlaceholder from '../components/PosterPlaceholder';
 
-const AnimationTrigger = ({
-  keyPass,
-  title,
-  orientation,
-  year,
-  poster,
-  left,
-  index,
-}) => {
+const AnimationTrigger = ({ title, year, poster, left }) => {
   const posterVariantsLeft = {
     initial: { opacity: 0, translateY: 100, rotateY: -70 },
     enter: {
@@ -81,7 +59,11 @@ const AnimationTrigger = ({
           {poster === 'N/A' ? (
             <PosterPlaceholder />
           ) : (
-            <img src={poster} alt={`Movie poster for ${title}`} />
+            <img
+              src={poster}
+              alt={`Movie poster for ${title}`}
+              style={{ width: '100%' }}
+            />
           )}
         </motion.div>
         <motion.div
@@ -111,7 +93,11 @@ const AnimationTrigger = ({
           {poster === 'N/A' ? (
             <PosterPlaceholder />
           ) : (
-            <img src={poster} alt={`Movie poster for ${title}`} />
+            <img
+              src={poster}
+              alt={`Movie poster for ${title}`}
+              style={{ width: '100%' }}
+            />
           )}
         </motion.div>
       </div>
