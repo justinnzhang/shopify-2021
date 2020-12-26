@@ -1,6 +1,15 @@
 # Shopify 2021 Front-End Engineering Summer Intern Challenge
+The Shoppies, try it [here](https://shopify2021.netlify.app/)
 
-## Tools used
+### TL;DR
+This project takes adds new features such as additional movie details & posters, error handling, loading states, interaction animations, and a summary page at the end.
+
+## Table of Contents
+- [TL;DR](https://github.com/madebyjustinzhang/shopify-2021#tldr)
+- [Tools](https://github.com/madebyjustinzhang/shopify-2021#tools)
+- [Extra Features](https://github.com/madebyjustinzhang/shopify-2021#extra-features)
+
+## Tools
 
 - React
 - Netlify (for hosting)
@@ -11,16 +20,12 @@
 - React Router, for navigation
 - Axios, for API requests
 
-## Specified Features
-
-- Searching for movies by name
-- Adding a movie to a nomination list, up to 5 maximum
-- Displaying a banner and notification when reaching the 5 maximum nominations
-- Not allowing duplicate nominations
-
 ## Extra Features
 
-- Details page for each movie, showing information such as actors, writers, IMBd rating, etc
+### Movie Details Page
+This shows information such as actors, directors, a plot summary, and even movie posters
+
+
 - Showing posters for most movies
 - Interaction and load animations
 - Load more movies at the end of the list
