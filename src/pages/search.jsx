@@ -108,7 +108,7 @@ const Main = () => {
 
     await axios
       .get(
-        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${value}&type=movie`
+        `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=${value}&type=movie`
       )
       .then((res) => {
         if (res.data.Error) {
@@ -135,7 +135,7 @@ const Main = () => {
     console.log(searchPage);
     await axios
       .get(
-        `http://www.omdbapi.com/?apikey=${
+        `https://www.omdbapi.com/?apikey=${
           process.env.REACT_APP_API_KEY
         }&s=${lastSearched}&page=${searchPage + 1}&type=movie`
       )
@@ -222,7 +222,7 @@ const Main = () => {
 
     await axios
       .get(
-        `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`
+        `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=${id}`
       )
       .then((res) => {
         if (res.data.Error) {
