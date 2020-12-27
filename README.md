@@ -4,7 +4,7 @@
 Try it [here](https://shopify2021.netlify.app/)
 
 ### TL;DR
-This project takes adds new features such as additional movie details & posters, error handling, loading states, interaction animations, and a summary page at the end.
+This project adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more!
 
 ## Table of Contents
 - [TL;DR](https://github.com/madebyjustinzhang/shopify-2021#tldr)
@@ -16,27 +16,31 @@ This project takes adds new features such as additional movie details & posters,
 - React
 - Netlify, for hosting
 - Cloudfront + S3, for CDN & Asset Store
-- Figma, for mockups and planning
-  
-    [Figma Mockup](https://www.figma.com/file/GFMA2IxSD5m1jh783NQMlv/Shopify-Front-End-Developer-Intern-2021-Challenge?node-id=0%3A1)
+- Figma, for mockups and planning - [See Mockup](https://www.figma.com/file/GFMA2IxSD5m1jh783NQMlv/Shopify-Front-End-Developer-Intern-2021-Challenge?node-id=0%3A1)
 - Shopify Polaris, for components & layout
 - Framer Motion API, for animations
 - React Icons, for icons
 - React Router, for navigation
 - Axios, for API requests
 
+## Specified Features
+
 ## Extra Features
 
-### Movie Details Page
+#### Movie Details Page
 This shows information such as actors, directors, a plot summary, and even movie posters
 
 ![image movie details page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-regular.png)
-### Interaction and load animations
+#### Animations, Loading States, and Empty States 
 
 ![gif of main screen](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-animated.gif)
 ![gif of movie details loading in](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/search-page-animated.gif)
 
-- Load more movies at the end of the list
-- Empty state messaging and images
-- Network error handling and messaging
-- Loading states with skeletons
+#### Load More Function
+
+#### Error Handling
+
+#### Persistent Nomination List
+Saves the nomination list in localStorage to allow the user to come back to their previous nominations
+
+
