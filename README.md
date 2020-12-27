@@ -3,6 +3,8 @@
 
 Try it [here](https://shopify2021.netlify.app/)
 
+This document contains video recordings of all implemented features and components.
+
 ## Table of Contents
 - [TL;DR](https://github.com/madebyjustinzhang/shopify-2021#tldr)
 - [Tools](https://github.com/madebyjustinzhang/shopify-2021#tools)
@@ -10,7 +12,7 @@ Try it [here](https://shopify2021.netlify.app/)
 - [Extra Features](https://github.com/madebyjustinzhang/shopify-2021#extra-features)
 
 ## TL;DR
-This project adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more!
+My application adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more! In all, I wanted to create an adaptable application that also provides transparent messaging and prompting to help the user through their journey.
 
 ## Tools
 
