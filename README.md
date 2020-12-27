@@ -26,22 +26,35 @@ This project adds new features such as additional movie details, movie posters, 
 
 ## Specified Features
 
+### Search and Nomination
+
+![gif of person using the application](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/main-features-1-animated.gif)
+
+### Notification For 5 Nominations
+
+![gif showing the banner pop-up for 5 notifications](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/main-features-2-animated.gif)
+
 ## Extra Features
 
 ### Movie Details Page
 This shows information such as actors, directors, a plot summary, and even movie posters
 
 ![image movie details page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-regular.png)
+
 ### Animations, Loading States, and Empty States 
+General interaction animations and design considerations for the application
 
 ![gif of main screen](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-animated.gif)
 ![gif of movie details loading in](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/search-page-animated.gif)
 
 ### Load More Function
+Allows the user to load more movie results once they scroll to the bottom of the page
+
 ![gif of user loading more results](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/load-more-animated.gif)
 
 ### Error Handling
-Using an error react hook to create a flexible error display system
+Using a react hook to create a flexible error display system while taking advantage of built in error states
+
 ![gif of a search error](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/error-message-animated.gif)
 
 ### Persistent Nomination List & Notification System
