@@ -1,4 +1,4 @@
-# Shopify Summer 2021 Internship Challenge - The Shoppies
+# Shopify Summer 2021 Internship Challenge
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f5c0408c-13de-4b4a-a477-47ecff6755a1/deploy-status)](https://app.netlify.com/sites/shopify2021/deploys)
 
 Try it [here](https://shopify2021.netlify.app/)
@@ -32,6 +32,10 @@ This shows information such as actors, directors, a plot summary, and even movie
 
 ![image movie details page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-regular.png)
 ### Interaction and load animations
+
+![gif of main screen](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-animated.gif)
+![gif of movie details loading in](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/search-page-animated.gif)
+
 - Load more movies at the end of the list
 - Empty state messaging and images
 - Network error handling and messaging
