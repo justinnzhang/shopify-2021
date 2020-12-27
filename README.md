@@ -58,7 +58,7 @@ Using a react hook to create a flexible error display system while taking advant
 ![gif of a search error](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/error-message-animated.gif)
 
 ### Persistent Nomination List & Notification System
-Saves the nomination list in localStorage to allow the user to come back to their previous nominations. Also takes advantage of the notification system to tell the user that there was saved data
+Saves the nomination list in localStorage to allow the user to reload the page. Also takes advantage of the notification system to tell the user that there was saved data
 
 ![gif of user reloading the page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/persistent-memory-animated.gif)
 
