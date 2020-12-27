@@ -28,28 +28,28 @@ This project adds new features such as additional movie details, movie posters, 
 
 ## Extra Features
 
-#### Movie Details Page
+### Movie Details Page
 This shows information such as actors, directors, a plot summary, and even movie posters
 
 ![image movie details page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-regular.png)
-#### Animations, Loading States, and Empty States 
+### Animations, Loading States, and Empty States 
 
 ![gif of main screen](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/movie-details-animated.gif)
 ![gif of movie details loading in](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/search-page-animated.gif)
 
-#### Load More Function
+### Load More Function
 ![gif of user loading more results](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/load-more-animated.gif)
 
-#### Error Handling
+### Error Handling
 Using an error react hook to create a flexible error display system
 ![gif of a search error](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/error-message-animated.gif)
 
-#### Persistent Nomination List & Notification System
+### Persistent Nomination List & Notification System
 Saves the nomination list in localStorage to allow the user to come back to their previous nominations. Also takes advantage of the notification system to tell the user that there was saved data
 
 ![gif of user reloading the page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/persistent-memory-animated.gif)
 
-#### Summary Page
+### Summary Page
 Presents the user's nominations with their posters
 
 ![gif of the summary page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/summary-page-animated.gif)
