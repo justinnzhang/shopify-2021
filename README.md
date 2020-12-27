@@ -1,4 +1,4 @@
-# Shopify 2021 Front-End Engineering Summer Intern Challenge
+# Shopify Summer 2021 Internship Challenge - The Shoppies
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f5c0408c-13de-4b4a-a477-47ecff6755a1/deploy-status)](https://app.netlify.com/sites/shopify2021/deploys)
 
 Try it [here](https://shopify2021.netlify.app/)
