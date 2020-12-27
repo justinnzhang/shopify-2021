@@ -3,13 +3,14 @@
 
 Try it [here](https://shopify2021.netlify.app/)
 
-### TL;DR
-This project adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more!
-
 ## Table of Contents
 - [TL;DR](https://github.com/madebyjustinzhang/shopify-2021#tldr)
 - [Tools](https://github.com/madebyjustinzhang/shopify-2021#tools)
+- [Specified Features](https://github.com/madebyjustinzhang/shopify-2021#specified-features)
 - [Extra Features](https://github.com/madebyjustinzhang/shopify-2021#extra-features)
+
+## TL;DR
+This project adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more!
 
 ## Tools
 
@@ -37,10 +38,20 @@ This shows information such as actors, directors, a plot summary, and even movie
 ![gif of movie details loading in](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/search-page-animated.gif)
 
 #### Load More Function
+![gif of user loading more results](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/load-more-animated.gif)
 
 #### Error Handling
+Using an error react hook to create a flexible error display system
+![gif of a search error](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/error-message-animated.gif)
 
-#### Persistent Nomination List
-Saves the nomination list in localStorage to allow the user to come back to their previous nominations
+#### Persistent Nomination List & Notification System
+Saves the nomination list in localStorage to allow the user to come back to their previous nominations. Also takes advantage of the notification system to tell the user that there was saved data
+
+![gif of user reloading the page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/persistent-memory-animated.gif)
+
+#### Summary Page
+Presents the user's nominations with their posters
+
+![gif of the summary page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/summary-page-animated.gif)
 
 
