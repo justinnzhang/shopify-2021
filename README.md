@@ -3,7 +3,7 @@
 
 Try it [here](https://shopify2021.netlify.app/)
 
-This document contains video recordings of all implemented features and components.
+This document contains gifs of all implemented features and a list of additional considerations that I made.
 
 ## Table of Contents
 - [TL;DR](https://github.com/madebyjustinzhang/shopify-2021#tldr)
