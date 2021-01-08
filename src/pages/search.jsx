@@ -20,6 +20,7 @@ import {
   Form,
   FooterHelp,
   Caption,
+  Sticky,
 } from '@shopify/polaris';
 
 import enTranslations from '@shopify/polaris/locales/en.json';
@@ -339,47 +340,49 @@ const Main = () => {
             <FadeUpChildren>
               <Layout>
                 <Layout.Section secondary>
-                  <Card title='Your Nominations'>
-                    <FadeUpChildren>
-                      <Card.Section>
-                        <TextStyle variation='subdued'>
-                          Nominate up to 5 movies
-                        </TextStyle>
-                        {nominated.length === 0 && (
-                          <motion.img
-                            variants={childFadeUp}
-                            src='https://doixzan7hf4ti.cloudfront.net/shopify-2021-challenge/Shoppies-Nomination-Empty-List.svg'
-                            style={{
-                              maxWidth: '100%',
-                              textAlign: 'center',
-                            }}
-                            alt='Trophy for the Shoppies'
-                          />
-                        )}
-                      </Card.Section>
-                    </FadeUpChildren>
+                  <Sticky offset>
+                    <Card title='Your Nominations'>
+                      <FadeUpChildren>
+                        <Card.Section>
+                          <TextStyle variation='subdued'>
+                            Nominate up to 5 movies
+                          </TextStyle>
+                          {nominated.length === 0 && (
+                            <motion.img
+                              variants={childFadeUp}
+                              src='https://doixzan7hf4ti.cloudfront.net/shopify-2021-challenge/Shoppies-Nomination-Empty-List.svg'
+                              style={{
+                                maxWidth: '100%',
+                                textAlign: 'center',
+                              }}
+                              alt='Trophy for the Shoppies'
+                            />
+                          )}
+                        </Card.Section>
+                      </FadeUpChildren>
 
-                    <TextStyle variation='negative'>
-                      {errors.nominationError}
-                    </TextStyle>
-                    <motion.div layout>
-                      <NominationList
-                        nominationList={nominated}
-                        removeNomination={removeNomination}
-                        loadMovieDetails={loadMovieDetails}
-                      />
+                      <TextStyle variation='negative'>
+                        {errors.nominationError}
+                      </TextStyle>
+                      <motion.div layout>
+                        <NominationList
+                          nominationList={nominated}
+                          removeNomination={removeNomination}
+                          loadMovieDetails={loadMovieDetails}
+                        />
+                      </motion.div>
+                    </Card>
+
+                    <motion.div layout key='footer help component'>
+                      <FooterHelp>
+                        <Caption>
+                          <TextStyle variation='subdued'>
+                            Nominations are automatically saved to your browser
+                          </TextStyle>
+                        </Caption>
+                      </FooterHelp>
                     </motion.div>
-                  </Card>
-
-                  <motion.div layout key='footer help component'>
-                    <FooterHelp>
-                      <Caption>
-                        <TextStyle variation='subdued'>
-                          Nominations are automatically saved
-                        </TextStyle>
-                      </Caption>
-                    </FooterHelp>
-                  </motion.div>
+                  </Sticky>
                 </Layout.Section>
                 <Layout.Section>
                   {count === 0 && !isLoading && (
