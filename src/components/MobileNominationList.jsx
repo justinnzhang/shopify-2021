@@ -9,8 +9,6 @@ import {
   TextStyle,
   ButtonGroup,
   TextContainer,
-  FooterHelp,
-  Caption,
   Modal,
 } from '@shopify/polaris';
 
@@ -51,7 +49,7 @@ const MobileNominationList = ({
         value={{
           style: {
             fontSize: '2em',
-            verticalAlign: '-0.8em',
+            verticalAlign: '-0.85em',
             marginLeft: '0.29em',
           },
         }}
@@ -77,7 +75,9 @@ const MobileNominationList = ({
       >
         <Modal.Section>
           <FadeUpChildren>
-            <TextStyle variation='subdued'>Nominate up to 5 movies</TextStyle>
+            <TextStyle variation='subdued'>
+              Nominate up to 5 movies, all selections are saved to your browser
+            </TextStyle>
             {nominationList.length === 0 && (
               <motion.img
                 variants={childFadeUp}
@@ -114,7 +114,10 @@ const MobileNominationList = ({
         <Modal.Section>
           <FadeUpChildren>
             <Card.Section>
-              <TextStyle variation='subdued'>Nominate up to 5 movies</TextStyle>
+              <TextStyle variation='subdued'>
+                Nominate up to 5 movies, all selections are saved to your
+                browser
+              </TextStyle>
               {nominationList.length === 0 && (
                 <motion.img
                   variants={childFadeUp}
