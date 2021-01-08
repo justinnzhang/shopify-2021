@@ -14,7 +14,7 @@ This document contains lists and recordings of all features implented in the pro
 ## TL;DR
 My application adds new features such as additional movie details, mobile friendly view, interaction animations, and more! My goal with this project was to create a simple to use platform that also felt fluid to use.
 
-#### List of additional features
+##### List of Extra Features
 - Additional movie details modal
 - Animations, loading states, and empty states
 - Load more function
