@@ -12,7 +12,7 @@ This document contains gifs of all implemented features and a list of additional
 - [Extra Features](https://github.com/madebyjustinzhang/shopify-2021#extra-features)
 
 ## TL;DR
-My application adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more! In all, I wanted to create an adaptable application that also provides transparent messaging and prompting to help the user through their journey.
+My application adds new features such as additional movie details, movie posters, error handling, loading states, interaction animations, a summary page at the end, and much more!
 
 ## Tools
 
