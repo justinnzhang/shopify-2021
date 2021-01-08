@@ -55,12 +55,13 @@ Allows the user to load more movie results once they scroll to the bottom of the
 ![gif of user loading more results](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/load-more-animated.gif)
 
 ### Error Handling
-Using a react hook to create a flexible error display system while taking advantage of built in error states
+Built a flexible erorr handling system using react hooks
 
 ![gif of a search error](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/error-message-animated.gif)
 
 ### Persistent Nomination List & Notification System
-Saves the nomination list in localStorage to allow the user to reload the page. Also takes advantage of the notification system to tell the user that there was saved data
+Saves the nomination list in localStorage to allow the user to reload the page. Also takes advantage of the notification system to tell the user that there was saved data.
+- I stored the data in plain text as this was simple data, however if it was sensitive data, I would've used a JWT token
 
 ![gif of user reloading the page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/persistent-memory-animated.gif)
 
