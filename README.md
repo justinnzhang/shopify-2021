@@ -65,9 +65,6 @@ Saves the nomination list in localStorage to allow the user to reload the page. 
 
 ![gif of user reloading the page](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/persistent-memory-animated.gif)
 
-### Sticky Nomination Bar
-![gif of sticky feature in place](https://github.com/madebyjustinzhang/shopify-2021/blob/master/read%20me%20images/sticky-feature-animated.gif)
-
 ### Summary Page
 Presents the user's nominations with their posters
 
