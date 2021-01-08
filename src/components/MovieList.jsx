@@ -120,9 +120,11 @@ const MovieList = ({
   // Loaded state
   return (
     <FadeUpParent>
-      <DisplayText size='small'>
-        Found {parseInt(searchData.totalResults)} results for "{searchTerm}"
-      </DisplayText>
+      <div style={{ padding: '20px' }}>
+        <DisplayText size='small'>
+          Found {parseInt(searchData.totalResults)} results for "{searchTerm}"
+        </DisplayText>
+      </div>
       <Spacer />
       {movieData.map((element, key) => (
         <Card key={`${element.Title} - Display Card @ ${key}`}>

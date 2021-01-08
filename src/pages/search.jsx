@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
@@ -18,8 +17,6 @@ import {
   Frame,
   Toast,
   Form,
-  FooterHelp,
-  Caption,
   Sticky,
 } from '@shopify/polaris';
 
@@ -36,12 +33,12 @@ import NominationList from '../components/NominationList';
 import MovieDetails from '../components/MovieDetails';
 
 // Custom animation components
-import { childFadeUp } from '../animation/Variants';
 import FadeUpParent from '../animation/FadeUpParent';
 import FadeUpChildren from '../animation/FadeUpChildren';
 
 // React router function
 import { NavigateTo } from '../components/RouterNavigation';
+import MobileNominationList from '../components/MobileNominationList';
 
 const Main = () => {
   // Loading states
@@ -91,6 +88,9 @@ const Main = () => {
   ) : null;
 
   const history = useHistory();
+
+  // Checks the width of the window to toggle between a mobile and desktop nomination list component
+  const [width, setWidth] = useState(window.innerWidth);
 
   // Checks to see if there's existing nominations in localStorage
   useEffect(() => {
@@ -240,6 +240,13 @@ const Main = () => {
       });
   };
 
+  // Handles screen resizing and clears listeners on unmount
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
   return (
     <AppProvider i18n={enTranslations}>
       <Frame>
@@ -339,51 +346,26 @@ const Main = () => {
 
             <FadeUpChildren>
               <Layout>
-                <Layout.Section secondary>
-                  <Sticky offset>
-                    <Card title='Your Nominations'>
-                      <FadeUpChildren>
-                        <Card.Section>
-                          <TextStyle variation='subdued'>
-                            Nominate up to 5 movies
-                          </TextStyle>
-                          {nominated.length === 0 && (
-                            <motion.img
-                              variants={childFadeUp}
-                              src='https://doixzan7hf4ti.cloudfront.net/shopify-2021-challenge/Shoppies-Nomination-Empty-List.svg'
-                              style={{
-                                maxWidth: '100%',
-                                textAlign: 'center',
-                              }}
-                              alt='Trophy for the Shoppies'
-                            />
-                          )}
-                        </Card.Section>
-                      </FadeUpChildren>
-
-                      <TextStyle variation='negative'>
-                        {errors.nominationError}
-                      </TextStyle>
-                      <motion.div layout>
-                        <NominationList
-                          nominationList={nominated}
-                          removeNomination={removeNomination}
-                          loadMovieDetails={loadMovieDetails}
-                        />
-                      </motion.div>
-                    </Card>
-
-                    <motion.div layout key='footer help component'>
-                      <FooterHelp>
-                        <Caption>
-                          <TextStyle variation='subdued'>
-                            Nominations are automatically saved to your browser
-                          </TextStyle>
-                        </Caption>
-                      </FooterHelp>
-                    </motion.div>
-                  </Sticky>
-                </Layout.Section>
+                {width > 820 ? (
+                  <Layout.Section secondary>
+                    <Sticky offset>
+                      <NominationList
+                        nominationList={nominated}
+                        removeNomination={removeNomination}
+                        loadMovieDetails={loadMovieDetails}
+                        errors={errors}
+                      />
+                    </Sticky>
+                  </Layout.Section>
+                ) : (
+                  <MobileNominationList
+                    nominationList={nominated}
+                    removeNomination={removeNomination}
+                    loadMovieDetails={loadMovieDetails}
+                    errors={errors}
+                    detailsActive={active}
+                  />
+                )}
                 <Layout.Section>
                   {count === 0 && !isLoading && (
                     <Card>
@@ -392,10 +374,17 @@ const Main = () => {
                           heading='Search for a movie to get started'
                           image='https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png'
                         >
-                          <p>
-                            Once you find a movie that you like, add it to your
-                            nominations
-                          </p>
+                          {width > 820 ? (
+                            <p>
+                              Your nomination list will update with each new
+                              nomination
+                            </p>
+                          ) : (
+                            <p>
+                              Your nomination list can be accessed by tapping
+                              the trophy icon
+                            </p>
+                          )}
                         </EmptyState>
                       </Card.Section>
                     </Card>
