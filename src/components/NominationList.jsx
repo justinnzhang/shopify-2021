@@ -32,7 +32,7 @@ const NominationList = ({
     return (
       <Card.Section>
         <div style={{ textAlign: 'center' }}>
-          <p>You haven't added anything yet</p>
+          <p>You haven't nominated anything yet</p>
         </div>
       </Card.Section>
     );
